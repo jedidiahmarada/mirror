@@ -1,4 +1,4 @@
-# mirror
+# MIRЯOR
 
 Team Member:
 - Fardian (BE)
