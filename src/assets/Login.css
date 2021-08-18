@@ -1,0 +1,83 @@
+.login-container p {
+  margin: 13px;
+}
+.login-container h1 {
+  margin: 32px 0;
+  color: #0080f5;
+  font-size: 40px;
+}
+
+.imageRR {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.RR {
+  height: 150px;
+  width: 150px;
+  border-radius: 20px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 520px;
+  min-height: 600px;
+  background: #fff;
+  text-align: center;
+  margin: 30px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+}
+
+.login-container input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 7px;
+  border: 1px solid #999999;
+  outline: none;
+  width: 320px;
+  background: #fff;
+  color: #000;
+  padding: 16px;
+  border-radius: 5px;
+  width: 80%;
+  margin: 13px auto;
+}
+
+.login-container input::placeholder {
+  color: #a39e9e;
+}
+
+.login-button {
+  padding: 14px;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 50%;
+  cursor: pointer;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #fcc659;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.bot-cont {
+  width: 520px;
+  min-height: 50px;
+  background: #fff;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.bot-cont p {
+  padding-top: 15px;
+}
+
+.bot-cont span {
+  color: #0080f5;
+}
