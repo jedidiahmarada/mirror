@@ -1,0 +1,33 @@
+header {
+  background-color: burlywood;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 200px 0 200px;
+}
+
+.logo {
+  width: 200px;
+}
+
+.btnProfile {
+  /* outline: 3px solid blue; */
+  background-color: #fbaf03;
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.btnText {
+  margin: 0;
+  font-family: roboto;
+  font-weight: 600;
+  color: #252b3a;
+}
+
+.icon {
+  height: 20px;
+  margin-right: 7px;
+}
