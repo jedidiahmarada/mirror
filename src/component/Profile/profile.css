@@ -1,0 +1,108 @@
+.containerNav {
+  height: 100vh;
+  width: 35%;
+  background: #fff;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logo img {
+  height: 50px;
+  margin: 25px;
+}
+
+.profile {
+  width: 200px;
+  height: 200px;
+  margin-left: 100px;
+}
+
+.profile-Nav {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-Username {
+  position: relative;
+  top: 10px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.profile-folower {
+  display: flex;
+}
+
+.info,
+.info1,
+.info3 {
+  margin: 10px;
+}
+
+.info1 {
+  border-right: 1px solid #e1e1e1;
+  padding-right: 10px;
+}
+
+.info3 {
+  border-left: 1px solid #e1e1e1;
+  padding-left: 10px;
+}
+
+.profile-bio {
+  text-align: left;
+  width: 225px;
+  margin-top: 25px;
+}
+.profile-bio span {
+  font-weight: bold;
+}
+.profile-bio p {
+  font-size: 15px;
+}
+
+.profile-Image img {
+  height: 95px;
+  width: 95px;
+  border-radius: 50%;
+}
+
+.profile-Button-inactive {
+  color: #ab6fdc;
+}
+.profile-Button-active {
+  color: rgb(158, 157, 157);
+}
+
+.profile-Menu {
+  display: flex;
+  flex-direction: column;
+  line-height: 65px;
+}
+
+.profile-Menu-pilih {
+  display: flex;
+}
+.profile-Menu-pilih strong {
+  cursor: pointer;
+}
+
+.profile-Menu-pilih img {
+  height: 95px;
+  width: 95px;
+}
+
+.profile-Menu-pilih-log {
+  display: flex;
+}
+
+.profile-Menu-pilih-log strong {
+  cursor: pointer;
+}
+
+.profile-Menu-pilih-log img {
+  height: 95px;
+  width: 95px;
+}
