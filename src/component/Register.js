@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { regisAsync } from "../redux/action/regisAction";
+
 import "../assets/Register.css";
 
 const Register = () => {
@@ -7,6 +10,15 @@ const Register = () => {
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
   const [inputBio, setInputBio] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleRegis = (event) => {
+    event.preventDefault();
+    dispatch(
+      regisAsync(inputFullName, inputUser, inputEmail, inputPass, inputBio)
+    );
+  };
 
   return (
     <div>
@@ -21,7 +33,7 @@ const Register = () => {
 
         <h1>share your reflection</h1>
 
-        <form onSubmit>
+        <form onSubmit={handleRegis}>
           <input
             placeholder="Full Name"
             value={inputFullName}

@@ -21,7 +21,7 @@ export const loginUser = async (username, email, password) => {
 };
 
 export const regisUser = async (
-  fulll_name,
+  full_name,
   username,
   email,
   password,
@@ -29,7 +29,7 @@ export const regisUser = async (
 ) => {
   const url = "https://mirror-application.herokuapp.com/mirror/register";
   const data = {
-    fulll_name,
+    full_name,
     username,
     email,
     password,

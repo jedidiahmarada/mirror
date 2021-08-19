@@ -30,8 +30,6 @@ export const loginAsync = (username, email, password) => {
   return (dispatch) => {
     dispatch(isLoginStart());
 
-    const store = window.localStorage;
-
     loginUser(username, email, password)
       .then((response) => {
         console.log(response, "respons login");

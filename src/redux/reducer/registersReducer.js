@@ -4,6 +4,7 @@ const initialState = {
   email: "",
   password: "",
   profilebio: "",
+  regisStat: "",
   loading: false,
   error: false,
   message: "",
