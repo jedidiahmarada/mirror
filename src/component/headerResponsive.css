@@ -1,0 +1,106 @@
+@media all and (max-width: 600px) {
+
+.hamburger-button-label {
+    width: 100%;
+    position: absolute;
+    right: 12px;
+    display: flex;
+    flex-direction: row-reverse;
+    /* justify-content: flex-end; */
+}
+/* .hamburger-button-label {
+    padding: 20px;
+} */
+
+.hamburger-button-label span,
+.hamburger-button-label span::before,
+.hamburger-button-label span::after {
+    display: block;
+    background-color: #feb633;
+    height: 3px;
+    width: 2em;
+    /* border-radius: 2px; */
+    position: relative;
+}
+
+.hamburger-button-label span::before,
+.hamburger-button-label span::after {
+    content: "";
+    position: relative;
+}
+
+.hamburger-button-label span::before {
+    bottom: 8px;
+}
+
+.hamburger-button-label span::after {
+    top: 5px;
+}
+
+.hamburger-button:checked ~ nav {
+    transform: scale(1,1);
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    z-index: 95;
+    background-color: white;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+    margin: 0;
+    padding: 3px 0 15px 0;
+    list-style: none;
+    background-color: white;
+}
+
+nav li {
+    margin-top: 0.75em;
+    margin-left: 2em;
+}
+
+nav a {
+    font-weight: 500;
+    color: black;
+    text-decoration: none; 
+    border-bottom: none;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: #feb633;
+    border-bottom: 2px solid #feb633;
+}
+
+button {
+    font-family: inherit;
+    border-radius: 10px;
+    background-color: #333333;
+    color: #feb633;
+    margin-top: 250px;
+    margin-bottom: 50px;
+    padding: 5px 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:active {
+    border: none;
+}
+
+
+
+.hamburger-button:checked ~ nav a{
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+}

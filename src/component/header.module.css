@@ -1,10 +1,17 @@
-header {
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   background-color: burlywood;
+}
+
+header {
+  width: 900px;
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 200px 0 200px;
+  /* margin: 0 200px 0 200px; */
 }
 
 .logo {
@@ -31,3 +38,14 @@ header {
   height: 20px;
   margin-right: 7px;
 }
+/* 
+@media screen and (min-width: 768px)  {
+  //masukkan semua atribut yang ingin dijadikan responsive di sini
+  semua atribut seperti button, text, dll wait
+})tehmburger menuny
+//media screen di atas untuk device yang minimal lebar layarnya 768px, misal: hape
+
+@media screen and (min-width: 1280px) {
+  //masukkan semua atribut yang ingin dijadikan responsif di sini//
+  //media screen untuk pengaturan tablet, 1280px = ukuranlebar tablet.
+} */

@@ -1,0 +1,7 @@
+@media all and (max-width: 600px) {
+  header {
+    width: 600px;
+    outline: 3px solid green;
+    height: 60px;
+  }
+}
