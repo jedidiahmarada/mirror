@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import "../assets/Login.css";
 import { loginAsync } from "../redux/action/loginAction";
 
@@ -9,6 +10,17 @@ const Login = () => {
   const username = "";
 
   const dispatch = useDispatch();
+
+  const { loading, error } = useSelector((state) => state.login);
+  const { loginStat } = useSelector((state) => state.login);
+
+  const historyHome = useHistory();
+
+  useEffect(() => {
+    if (loginStat === 200) {
+      historyHome.push("/profile");
+    }
+  }, [loginStat, historyHome]);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -43,15 +55,21 @@ const Login = () => {
               value={inputPass}
               onChange={(event) => setInputPass(event.target.value)}
             />
-
-            <button className="login-button" type="submit">
-              Sign In
-            </button>
+            {loading && <div className="single4"></div>}
+            {error && <div className="errormessages">Something Wrong</div>}
+            {!loading && (
+              <button className="login-button" type="submit">
+                Sign In
+              </button>
+            )}
           </form>
         </div>
         <div className="bot-cont">
           <p>
-            Don't have an account? <span>Sign up</span>{" "}
+            Don't have an account?{" "}
+            <Link to="/register">
+              <span>Sign up</span>
+            </Link>{" "}
           </p>
         </div>
       </div>

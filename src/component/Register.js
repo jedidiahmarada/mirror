@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { regisAsync } from "../redux/action/regisAction";
 
 import "../assets/Register.css";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [inputEmail, setInputEmail] = useState("");
@@ -12,6 +13,8 @@ const Register = () => {
   const [inputBio, setInputBio] = useState("");
 
   const dispatch = useDispatch();
+
+  const { loading, error } = useSelector((state) => state.registers);
 
   const handleRegis = (event) => {
     event.preventDefault();
@@ -64,10 +67,14 @@ const Register = () => {
             value={inputBio}
             onChange={(event) => setInputBio(event.target.value)}
           />
+          {loading && <div className="single4"></div>}
+          {error && <div className="errormessages">Something Wrong</div>}
+          {!loading && (
+            <button className="register-button" type="submit">
+              Sign Up
+            </button>
+          )}
 
-          <button className="register-button" type="submit">
-            Sign Up
-          </button>
           <p>
             By signing up, you agree to our Terms, Data Policy and Cookies
             Policy
@@ -76,7 +83,10 @@ const Register = () => {
       </div>
       <div className="bot-cont">
         <p>
-          Have an account? <span>Sign In</span>{" "}
+          Have an account?{" "}
+          <Link to="/">
+            <span>Sign In</span>
+          </Link>{" "}
         </p>
       </div>
     </div>

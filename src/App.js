@@ -1,14 +1,10 @@
 import "./App.css";
-import Login from "./component/Login";
-import ProfileNav from "./component/Profile/ProfileNav";
-import Register from "./component/Register";
+import Routes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      <Register />
-      <ProfileNav />
+      <Routes />
     </div>
   );
 }

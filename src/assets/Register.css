@@ -82,3 +82,46 @@
 .bot-cont span {
   color: #0080f5;
 }
+
+.error-message {
+  color: red;
+}
+
+.single4 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 6px solid #b9b6b6;
+  border-top-color: #9c9797;
+  border-bottom-color: #8d8d8d;
+  -webkit-animation: single4 2.5s infinite ease-in-out;
+  animation: single4 2.5s infinite ease-in-out;
+  position: relative;
+  left: 28vh;
+}
+
+@-webkit-keyframes single4 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(540deg);
+    transform: rotate(540deg);
+  }
+}
+
+@keyframes single4 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(540deg);
+    transform: rotate(540deg);
+  }
+}
+
+a {
+  text-decoration: none;
+}
