@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "../assets/Login.css";
+import { loginAsync } from "../redux/action/loginAction";
 
 const Login = () => {
   const [inputPass, setInputPass] = useState("");
   const [inputUser, setInputUser] = useState("");
+  const username = "";
+
+  const dispatch = useDispatch();
 
   const handleLogin = (event) => {
     event.preventDefault();
+    dispatch(loginAsync(username, inputUser, inputPass));
   };
 
   return (

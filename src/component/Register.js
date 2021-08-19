@@ -6,6 +6,7 @@ const Register = () => {
   const [inputFullName, setInputFullName] = useState("");
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
+  const [inputBio, setInputBio] = useState("");
 
   return (
     <div>
@@ -22,12 +23,6 @@ const Register = () => {
 
         <form onSubmit>
           <input
-            placeholder="Email"
-            value={inputEmail}
-            onChange={(event) => setInputEmail(event.target.value)}
-          />
-
-          <input
             placeholder="Full Name"
             value={inputFullName}
             onChange={(event) => setInputFullName(event.target.value)}
@@ -40,10 +35,22 @@ const Register = () => {
           />
 
           <input
+            placeholder="Email"
+            value={inputEmail}
+            onChange={(event) => setInputEmail(event.target.value)}
+          />
+
+          <input
             placeholder="Password"
             type="password"
             value={inputPass}
             onChange={(event) => setInputPass(event.target.value)}
+          />
+
+          <input
+            placeholder="Profile Biodata"
+            value={inputBio}
+            onChange={(event) => setInputBio(event.target.value)}
           />
 
           <button className="register-button" type="submit">
