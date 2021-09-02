@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt");
 const faker = require("faker");
 const Joi = require("joi");
@@ -167,60 +168,77 @@ exports.login = async (req, res) => {
         );
       }
 
-      const sess = req.session;
-      const sessID = req.sessionID;
+      const token = jwt.sign(
+				{
+					id: existingUser.dataValues.id,
+					full_name: existingUser.dataValues.full_name,
+					email: existingUser.dataValues.email,
+					profile_bio: existingUser.dataValues.profile_bio,
+					followers: existingUser.dataValues.followers,
+					following: existingUser.dataValues.following
+				},
+				process.env.SECRET_KEY,
+				{ expiresIn: "12h" }
+			)
 
-      if (req.session.authenticated) {
-        res.status(200).json({
-          code: 200,
-          success: true,
-          statusText: "OK",
-          message: "Login success",
-          // verifyPwd: verifyPwd,
-          // sessionInfo: {
-          // 	sess,
-          // 	sessID
-          // },
-        });
-        return;
-      } else if (verifyPwd == true) {
-        (req.session.authenticated = true),
-          res.status(200).json({
-            code: 200,
-            success: true,
-            statusText: "OK",
-            message: "Login success",
-            // verifyPwd: verifyPwd,
-            // sessionInfo: {
-            // 	sess,
-            // 	sessID
-            // },
-          });
-        return;
-      } else {
-        res.status(403).json({
-          code: 403,
-          success: false,
-          statusText: "Bad Credentials",
-          message: "User is not registered",
-          // verifyPwd: verifyPwd,
-          // sessionInfo: req.session,
-        });
-      }
+			const sess = req.session
+			const sessID = req.sessionID
 
-      res.status(200).json({
-        code: 200,
-        success: true,
-        statusText: "OK",
-        message: "Login success",
-        // verifyPwd: verifyPwd,
-        // sessionInfo: {
-        // 		sess,
-        // 		sessID
-        // 	},
-      });
-      return;
-    }
+			if(req.session.authenticated) {
+				res.status(200).json({
+					code: 200,
+					success: true,
+					statusText: "OK",
+					message: "Login success",
+					token: token,
+					// verifyPwd: verifyPwd,
+					// sessionInfo: {
+					// 	sess,
+					// 	sessID
+					// },
+				})
+				return
+			} else if (verifyPwd == true) {
+				req.session.authenticated = true,
+
+				res.status(200).json({
+					code: 200,
+					success: true,
+					statusText: "OK",
+					message: "Login success",
+					token: token,
+					// verifyPwd: verifyPwd,
+					// sessionInfo: {
+					// 	sess,
+					// 	sessID
+					// },
+				})
+				return
+			} else {
+				res.status(403).json({
+					code: 403,
+					success: false,
+					statusText: "Bad Credentials",
+					message: "User is not registered",
+					// verifyPwd: verifyPwd,
+					// sessionInfo: req.session,
+				})
+			}
+
+			res.status(200).json({
+				code: 200,
+				success: true,
+				statusText: "OK",
+				message: "Login success",
+				token: token,
+				// verifyPwd: verifyPwd,
+				// sessionInfo: {
+				// 		sess,
+				// 		sessID
+				// 	},
+			})
+			return
+		}
   } catch (error) {
     console.log(error);
     const err = error.details[0].message || null;

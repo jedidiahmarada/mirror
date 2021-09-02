@@ -1,7 +1,7 @@
 const AWS = require("aws-sdk");
 require("dotenv").config();
 const { Gallery, User } = require("../models");
-
+const jwt = require("jsonwebtoken")
 var s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ID,
   secretAccessKey: process.env.AWS_SECRET,
@@ -144,13 +144,37 @@ exports.getOnePhotobyUserID = async (req, res) => {
         success: false,
         message: "User ID is not found",
       });
+			return
     }
+
+		const userData = await User.findOne({
+			where: {
+				id: user_id
+			}
+		})
+
+		const token = jwt.sign(
+			{
+				id: userData.dataValues.id,
+				full_name: userData.dataValues.full_name,
+				email: userData.dataValues.email,
+				profile_bio: userData.dataValues.profile_bio,
+				followers: userData.dataValues.followers,
+				following: userData.dataValues.following
+			},
+			process.env.SECRET_KEY,
+			{ expiresIn: "12h" }
+		)
+
     return res.status(200).json({
       code: 200,
       statustext: "OK",
       success: true,
       message: "Successfully retrieve user's photos",
-      data: getImgByID,
+      data: {
+				getImgByID,
+				token,
+			}
     });
   } catch (err) {
     console.log(err);
